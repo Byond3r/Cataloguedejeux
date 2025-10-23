@@ -38,7 +38,7 @@ Pour faire fonctionner ce projet sur votre machine, suivez ces étapes :
 
 1.  **Cloner le dépôt**
     ```bash
-    git clone https://votre-url-de-depot.git
+    https://github.com/Byond3r/Cataloguedejeux.git
     ```
 
 2.  **Ouvrir dans Android Studio**
@@ -97,4 +97,3 @@ Pour que l'application fonctionne, vous devez créer une collection nommée `gam
       - `status` (string) - *valeur initiale : "Nouveau"*
 
 ---
-*Ce README a été généré pour le projet Catalogue de Jeux.*
