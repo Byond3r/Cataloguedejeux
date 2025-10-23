@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "286361206795",
+    "project_id": "cataloguejeux",
+    "storage_bucket": "cataloguejeux.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:286361206795:android:bfa53a545f8ea5a1bc470e",
+        "android_client_info": {
+          "package_name": "com.example.cataloguedejeux"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "286361206795-iukcugr35c09f8hupddreo8ennf7dark.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cataloguedejeux",
+            "certificate_hash": "6033b2a343ebc5f66f521ef942cf39db11c55001"
+          }
+        },
+        {
+          "client_id": "286361206795-bsichpr52bilt1l0c1pnj8rstgtrdd0s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD94tLVu1qBHGxqtJz-qJvkf-J_Z9NrRd4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "286361206795-bsichpr52bilt1l0c1pnj8rstgtrdd0s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
