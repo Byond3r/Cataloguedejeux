@@ -39,7 +39,7 @@ Pour faire fonctionner ce projet sur votre machine, suivez ces étapes :
 
 1.  **Cloner le dépôt**
     ```bash
-    git clone https://votre-url-de-depot.git
+    https://github.com/Byond3r/Cataloguedejeux.git
     ```
 
 2.  **Ouvrir dans Android Studio**
