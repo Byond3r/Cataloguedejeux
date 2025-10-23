@@ -9,12 +9,13 @@ Ce projet est une application mobile Android développée en Kotlin avec Jetpack
   - Connexion simplifiée via Google Sign-In.
 - **Catalogue de Jeux Dynamique :**
   - La liste des jeux est chargée en temps réel depuis la base de données Firestore.
-  - Toute modification dans la base de données (ajout, suppression, mise à jour) est instantanément répercutée dans l'application.
+  - Affiche le titre, le développeur, l'éditeur et une image pour chaque jeu.
+  - Le statut de lecture ("Lu"/"Nouveau") est affiché avec un code couleur (Vert/Rouge).
 - **Détails des Jeux :**
-  - Affichage d'un écran de détails pour chaque jeu avec une image, le titre et une description complète.
-- **Gestion de Statut :**
-  - Un statut "Nouveau" ou "Lu" est associé à chaque jeu.
-  - Le statut passe à "Lu" lorsque l'utilisateur consulte la description d'un jeu, et cette information est sauvegardée dans Firestore.
+  - Affichage d'un écran de détails pour chaque jeu avec une grande image, le titre et une description complète.
+- **Gestion de Statut Manuelle :**
+  - Une checkbox sur l'écran de détails permet à l'utilisateur de marquer manuellement un jeu comme "Lu".
+  - Le statut est sauvegardé et synchronisé en temps réel avec Firestore.
 - **Gestion de Compte :**
   - Un écran "Compte" accessible depuis une barre de navigation latérale.
   - Affiche l'adresse e-mail de l'utilisateur connecté.
@@ -38,7 +39,7 @@ Pour faire fonctionner ce projet sur votre machine, suivez ces étapes :
 
 1.  **Cloner le dépôt**
     ```bash
-    https://github.com/Byond3r/Cataloguedejeux.git
+    git clone https://votre-url-de-depot.git
     ```
 
 2.  **Ouvrir dans Android Studio**
@@ -94,6 +95,8 @@ Pour que l'application fonctionne, vous devez créer une collection nommée `gam
       - `title` (string)
       - `description` (string)
       - `imageUrl` (string)
-      - `status` (string) - *valeur initiale : "Nouveau"*
+      - `developer` (string)
+      - `editor` (string)
+      - `read` (boolean) - *valeur initiale : `false`*
 
 ---

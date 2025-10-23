@@ -3,22 +3,21 @@ package com.example.cataloguedejeux
 import com.google.firebase.firestore.DocumentId
 
 /**
- * Une classe de données (`data class`) qui représente le modèle d'un jeu vidéo dans l'application.
- * Les `data class` sont une fonctionnalité de Kotlin conçue pour contenir des données.
- * Elles génèrent automatiquement des méthodes utiles comme `equals()`, `hashCode()`, `toString()` et `copy()`.
- * Le constructeur sans arguments est nécessaire pour que Firestore puisse désérialiser les documents
- * en objets `Game`.
- *
+ * Classe de données représentant un jeu vidéo.
  * @property id L'identifiant unique du document Firestore.
  * @property title Le titre du jeu.
- * @property description Une courte description du jeu.
- * @property imageUrl L'URL de l'image de couverture du jeu.
- * @property status Le statut de lecture du jeu (par exemple, "Nouveau" ou "Lu").
+ * @property description La description du jeu.
+ * @property imageUrl L'URL de l'image de couverture.
+ * @property developer Le studio de développement du jeu.
+ * @property editor L'éditeur du jeu.
+ * @property read Un booléen indiquant si le jeu a été marqué comme lu.
  */
 data class Game(
-    @DocumentId val id: String = "", // L'ID vient du document Firestore
+    @DocumentId val id: String = "",
     val title: String = "",
     val description: String = "",
     val imageUrl: String = "",
-    val status: String = "Nouveau" // Valeur par défaut
+    val developer: String = "",
+    val editor: String = "",
+    val read: Boolean = false // Remplacement de status par un booléen
 )

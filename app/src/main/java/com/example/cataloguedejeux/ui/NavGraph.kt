@@ -1,5 +1,6 @@
 package com.example.cataloguedejeux.ui
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -20,6 +21,7 @@ import com.example.cataloguedejeux.viewmodel.GameViewModel
 /**
  * Le NavGraph est le composant qui gère la navigation dans l'application.
  */
+@SuppressLint("StateFlowValueCalledInComposition")
 @Composable
 fun NavGraph(navController: NavHostController, paddingValues: PaddingValues) {
     val authViewModel: AuthViewModel = viewModel()
@@ -46,7 +48,8 @@ fun NavGraph(navController: NavHostController, paddingValues: PaddingValues) {
             val gameId = backStackEntry.arguments?.getString("gameId")
             val game = gameViewModel.getGameById(gameId!!)
             if (game != null) {
-                GameDetailsScreen(game, navController)
+                // Passe maintenant le ViewModel à l'écran de détails
+                GameDetailsScreen(game, navController, gameViewModel)
             }
         }
 

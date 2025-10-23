@@ -14,20 +14,11 @@ import com.google.firebase.ktx.Firebase
  */
 class GameViewModel : ViewModel() {
 
-    // Référence à la base de données Firestore.
     private val db = Firebase.firestore
-
-    // _games est une variable d'état privée qui contient la liste des jeux.
     private val _games = mutableStateOf<List<Game>>(emptyList())
-    
-    // `games` est une propriété publique qui expose la liste des jeux.
     val games: List<Game> get() = _games.value
 
     init {
-        // `addSnapshotListener` est la clé de la mise à jour en temps réel.
-        // Ce code s'exécute une première fois pour récupérer toutes les données, puis
-        // se déclenche à chaque fois qu'une donnée est ajoutée, modifiée ou supprimée
-        // dans la collection "games" de Firestore.
         db.collection("games").addSnapshotListener { snapshot, e ->
             if (e != null) {
                 Log.w("GameViewModel", "Listen failed.", e)
@@ -35,8 +26,6 @@ class GameViewModel : ViewModel() {
             }
 
             if (snapshot != null) {
-                // `toObjects<Game>()` convertit automatiquement les documents Firestore
-                // en une liste d'objets `Game`.
                 _games.value = snapshot.toObjects()
             }
         }
@@ -44,23 +33,18 @@ class GameViewModel : ViewModel() {
 
     /**
      * Récupère un jeu spécifique de la liste par son identifiant (ID).
-     * @param id L'identifiant unique du document Firestore.
-     * @return Le jeu correspondant ou `null` s'il n'est pas trouvé.
      */
     fun getGameById(id: String): Game? {
         return games.find { it.id == id }
     }
 
     /**
-     * Met à jour le statut d'un jeu à "Lu" directement dans Firestore.
-     * @param gameId L'identifiant du document Firestore du jeu à mettre à jour.
+     * Inverse le statut de lecture (lu/non lu) d'un jeu dans Firestore.
+     * @param game Le jeu dont le statut doit être basculé.
      */
-    fun markAsRead(gameId: String) {
-        db.collection("games").document(gameId)
-            .update("status", "Lu")
-            .addOnSuccessListener { 
-                Log.d("GameViewModel", "DocumentSnapshot successfully updated!") 
-            }
+    fun toggleReadStatus(game: Game) {
+        db.collection("games").document(game.id)
+            .update("read", !game.read) // Inverse la valeur actuelle
             .addOnFailureListener { e -> 
                 Log.w("GameViewModel", "Error updating document", e) 
             }
