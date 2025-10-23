@@ -100,4 +100,4 @@ Pour que l'application fonctionne, vous devez créer une collection nommée `gam
       - `read` (boolean) - *valeur initiale : `false`*
 
 ---
-*Ce README a été généré pour le projet Catalogue de Jeux.*
+
